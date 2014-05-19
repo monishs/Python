@@ -1,0 +1,103 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf190
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fswiss\fcharset0 Helvetica;\f2\fmodern\fcharset0 Courier;
+\f3\fnil\fcharset0 STIXGeneral-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\margl1440\margr1440\vieww18720\viewh12660\viewkind0
+\deftab720
+\pard\pardeftab720\sa321
+{\field{\*\fldinst{HYPERLINK "https://class.coursera.org/interactivepython-004/"}}{\fldrslt 
+\f0\b\fs48 \cf2 \ul \ulc2 An Introduction to Interactive Programming in Python}}
+\f0\b\fs48 \uc0\u8232 by Joe Warren, Scott Rixner, John Greiner, Stephen Wong\
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "https://class.coursera.org/interactivepython-004"}}{\fldrslt 
+\f1\b0\fs24 \cf0 }}\pard\pardeftab720
+
+\fs28 \cf0 \
+\pard\pardeftab720\sa280
+\cf0 Mini-project development process  ( MEMORY Game)\
+\pard\pardeftab720
+
+\b0\fs24 \cf0 As usual, we suggest that you start from the {\field{\*\fldinst{HYPERLINK "http://www.codeskulptor.org/#examples-memory_template.py"}}{\fldrslt 
+\b \cf2 program template}} for this mini-project.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls1\ilvl0\cf0 {\listtext	1.	}Model the deck of cards used in Memory as a list consisting of 16 numbers with each number lying in the range [0,8) and appearing twice. We suggest that you create this list by concatenating two list with range [0,8) together. Use the Docs to locate the list concatenation operator.\
+{\listtext	2.	}Write a draw handler that iterates through the Memory deck using a 
+\f2 for
+\f0  loop and uses 
+\f2 draw_text
+\f0  to draw the number associated with each card on the canvas. The result should be a horizontal sequence of evenly-spaced numbers drawn on the canvas.\
+{\listtext	3.	}Shuffle the deck using 
+\f2 random.shuffle()
+\f0 . Remember to debug your canvas drawing code before shuffling to make debugging easier.\
+{\listtext	4.	}Next, modify the draw handler to either draw a blank green rectangle or the card's value. To implement this behavior, we suggest that you create a second list called 
+\f2 exposed
+\f0 . In the 
+\f2 exposed
+\f0  list, the 
+\f3\i\fs28 i
+\fs20 th 
+\f0\i0\fs24 entry should be 
+\f2 True
+\f0  if the 
+\f3\i\fs28 i
+\fs20 th 
+\f0\i0\fs24 card is face up and its value is visible or 
+\f2 False
+\f0  if the 
+\f3\i\fs28 i
+\fs20 th\uc0\u8232 
+\f0\i0\fs24 card is face down and it's value is hidden. We suggest that you initialize 
+\f2 exposed
+\f0  to some known values while testing your drawing code with this modification.\
+{\listtext	5.	}Now, add functionality to determine which card you have clicked on with your mouse. Add an event handler for mouse clicks that takes the position of the mouse click and prints the index of the card that you have clicked on to the console. To make determining which card you have clicked on easy, we suggest sizing the canvas so that the sequence of cards entirely fills the canvas.\
+{\listtext	6.	}Modify the event handler for mouse clicks to flip cards based on the location of the mouse click. If the player clicked on the 
+\f2 i
+\f0 th card, you can change the value of 
+\f2 exposed[i]
+\f0  from 
+\f2 False
+\f0  to 
+\f2 True
+\f0 . 
+\b If the card is already exposed, you should ignore the mouseclick
+\b0 . At this point, the basic infrastructure for Memory is done.\
+{\listtext	7.	}You now need to add game logic to the mouse click handler for selecting two cards and determining if they match. We suggest following the game logic in the {\field{\*\fldinst{HYPERLINK "http://www.codeskulptor.org/#examples-memory_states.py"}}{\fldrslt 
+\b \cf2 example code}} discussed in the Memory video. State 0 corresponds to the start of the game. In state 0, if you click on a card, that card is exposed, and you switch to state 1. State 1 corresponds to a single exposed unpaired card. In state 1, if you click on an unexposed card, that card is exposed and you switch to state 2. State 2 corresponds to the end of a turn. In state 2, if you click on an unexposed card, that card is exposed and you switch to state 1.\
+{\listtext	8.	}Note that in state 2, you also have to determine if the previous two cards are paired or unpaired. If they are unpaired, you have to flip them back over so that they are hidden before moving to state 1. We suggest that you use two global variables to store the index of each of the two cards that were clicked in the previous turn.\
+{\listtext	9.	}Add a counter that keeps track of the number of turns and uses 
+\f2 set_text
+\f0  to update this counter as a label in the control panel. (BTW, Joe's record is 12 turns.) \'a0This counter should be incremented after either the first or second card is flipped during a turn.\
+{\listtext	10.	}Finally, implement the 
+\f2 new_game()
+\f0  function (if you have not already) so that the "Reset" button reshuffles the cards, resets the turn counter and restarts the game. All cards should start the game hidden.\
+{\listtext	11.	}(Optional) You may replace the 
+\f2 draw_text
+\f0  for each card by a 
+\f2 draw_image
+\f0  that uses one of eight different images.\
+\pard\pardeftab720
+\cf0 \
+Once the run button is clicked in CodeSkulptor, the game should start. You should not have to hit the "Reset" button to start. Once the game is over, you should hit the "Reset" button to restart the game. While this project may seem daunting at first glance, our full implementation took well under 100 lines with comments and spaces. If you feel a little bit intimidated, focus on developing your project to step six. Our experience is that, at this point, you will begin to see your game come together and the going will get much easier.\
+\
+\pard\pardeftab720\sa280
+
+\b\fs28 \cf0 Grading Rubric - 11 pts total (scaled to 100)\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls2\ilvl0
+\b0\fs24 \cf0 {\listtext	\'95	}1 pt - The game correctly draws 16 cards on the canvas (horizontally or as a grid). Using images in place of textual numbers is fine. 
+\b However, it is the submitter's responsibility to ensure that custom images load during peer assessment.
+\b0 \
+{\listtext	\'95	}1 pt - The cards appear in eight unique pairs.\
+{\listtext	\'95	}1 pt - The game ignores clicks on exposed cards.\
+{\listtext	\'95	}1 pt - At the start of the game, a click on a card exposes the card that was clicked on.\
+{\listtext	\'95	}1 pt - If one upaired card is exposed, a click on a second unexposed card exposes the card that was clicked on.\
+{\listtext	\'95	}1 pt - If two unpaired cards are exposed, a click on an unexposed card exposes the card that was clicked on and flips the two unpaired cards over.\
+{\listtext	\'95	}1 pt - If all exposed cards are paired, a click on an unexposed card exposes the card that was clicked on and does not flip any other cards.\
+{\listtext	\'95	}1 pt - Cards paired by two clicks in the same turn remain exposed until the start of the next game.\
+{\listtext	\'95	}1 pt - The game correctly updates and displays the number of turns in the current game in a label displayed in the control area.\'a0The counter may be\'a0incremented\'a0after either the first or second card is flipped during a turn.\
+{\listtext	\'95	}1 pt - The game includes a "Reset" button that resets the turn counter and restarts the game.\
+{\listtext	\'95	}1 pt - The deck is also randomly shuffled each time the "Reset" button is pressed, so that the cards are in a different order each game.\
+}
