@@ -84,6 +84,3 @@ timer = simplegui.create_timer(Interval, timer_handler)
 
 # start frame
 frame.start()
-
-
-# Please remember to review the grading rubric
