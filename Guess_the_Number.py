@@ -89,5 +89,3 @@ frame.add_input('Guess the number', input_guess, 200)
 # call new_game and start frame
 new_game()
 frame.start()
-
-# always remember to check your completed program against the grading rubric
